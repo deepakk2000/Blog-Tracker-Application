@@ -1,0 +1,28 @@
+﻿@model IEnumerable<DAL.BlogInfo>
+
+@{
+    ViewData["Title"] = "BTA";
+}
+
+<h1 class="text-center">List Of Blogs</h1>
+
+@* <p>
+    <a asp-action="Create">Create New</a>
+</p> *@
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">@Html.DisplayFor(modelItem => item.Title) -By @Html.DisplayFor(modelItem => item.EmpInfo.Email)</h5>
+                    <p class="card-text">@Html.DisplayFor(modelItem => item.Subject)</p>
+                    <p class="card-text">Date:@Html.DisplayFor(modelItem => item.DateOfCreation)</p>
+                    <p class="card-text link-dark">
+                        <a href="@item.BlogUrl" target="_blank">@Html.DisplayFor(modelItem => item.BlogUrl)</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
